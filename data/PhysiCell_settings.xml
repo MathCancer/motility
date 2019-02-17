@@ -126,7 +126,7 @@
 		<migration_bias type="double" units="none" 
 			description="migration bias parameter">0.6</migration_bias>
 		<fixed_persistence type="bool" units="none"
-			description="true if each migration path has same duration (future PhysiCell versions)">false</fixed_persistence>
+			description="true if each migration path has same duration (future PhysiCell versions)">False</fixed_persistence>
 		
 		<tracer_secretion type="double" units="1/min" 
 			description="how fast tracer is released">1</tracer_secretion>
