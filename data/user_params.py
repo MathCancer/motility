@@ -16,65 +16,94 @@ class UserTab(object):
         tab_height = '500px'
         stepsize = 10
 
-        style = {'description_width': '250px'}
+        #style = {'description_width': '250px'}
+        style = {'description_width': '25%'}
         layout = {'width': '400px'}
 
+        name_button_layout={'width':'25%'}
+        widget_layout = {'width': '15%'}
+        units_button_layout ={'width':'15%'}
+        desc_button_layout={'width':'45%'}
+
+        param_name1 = Button(description='persistence_time', disabled=True, layout=name_button_layout)
+        param_name1.style.button_color = 'lightgreen'
+
         self.persistence_time = FloatText(
-          description='persistence_time',
           value=20,
           step=1,
-          style=style, layout=layout)
+          style=style, layout=widget_layout)
+
+        param_name2 = Button(description='migration_speed', disabled=True, layout=name_button_layout)
+        param_name2.style.button_color = 'tan'
 
         self.migration_speed = FloatText(
-          description='migration_speed',
           value=2,
           step=0.1,
-          style=style, layout=layout)
+          style=style, layout=widget_layout)
+
+        param_name3 = Button(description='migration_bias', disabled=True, layout=name_button_layout)
+        param_name3.style.button_color = 'lightgreen'
 
         self.migration_bias = FloatText(
-          description='migration_bias',
           value=0.6,
           step=0.1,
-          style=style, layout=layout)
+          style=style, layout=widget_layout)
+
+        param_name4 = Button(description='fixed_persistence', disabled=True, layout=name_button_layout)
+        param_name4.style.button_color = 'tan'
 
         self.fixed_persistence = Checkbox(
-          description='fixed_persistence',
-          value=false,
-          style=style, layout=layout)
+          value=False,
+          style=style, layout=widget_layout)
+
+        param_name5 = Button(description='tracer_secretion', disabled=True, layout=name_button_layout)
+        param_name5.style.button_color = 'lightgreen'
 
         self.tracer_secretion = FloatText(
-          description='tracer_secretion',
           value=1,
           step=0.1,
-          style=style, layout=layout)
+          style=style, layout=widget_layout)
+
+        param_name6 = Button(description='number_of_cells', disabled=True, layout=name_button_layout)
+        param_name6.style.button_color = 'tan'
 
         self.number_of_cells = IntText(
-          description='number_of_cells',
           value=3,
           step=0.1,
-          style=style, layout=layout)
+          style=style, layout=widget_layout)
 
-        param_button_layout={'width':'400px'} 
+        units_button1 = Button(description='min', disabled=True, layout=units_button_layout) 
+        units_button1.style.button_color = 'lightgreen'
+        units_button2 = Button(description='micron/min', disabled=True, layout=units_button_layout) 
+        units_button2.style.button_color = 'tan'
+        units_button3 = Button(description='', disabled=True, layout=units_button_layout) 
+        units_button3.style.button_color = 'lightgreen'
+        units_button4 = Button(description='', disabled=True, layout=units_button_layout) 
+        units_button4.style.button_color = 'tan'
+        units_button5 = Button(description='1/min', disabled=True, layout=units_button_layout) 
+        units_button5.style.button_color = 'lightgreen'
+        units_button6 = Button(description='', disabled=True, layout=units_button_layout) 
+        units_button6.style.button_color = 'tan'
 
-        desc_row1 = Button(description='mean persistence time', disabled=True, layout=param_button_layout) 
-        desc_row1.style.button_color = 'lightgreen'
-        desc_row2 = Button(description='migration speed', disabled=True, layout=param_button_layout) 
-        desc_row2.style.button_color = 'tan'
-        desc_row3 = Button(description='migration bias parameter', disabled=True, layout=param_button_layout) 
-        desc_row3.style.button_color = 'lightgreen'
-        desc_row4 = Button(description='true if each migration path has same duration (future PhysiCell versions)', disabled=True, layout=param_button_layout) 
-        desc_row4.style.button_color = 'tan'
-        desc_row5 = Button(description='how fast tracer is released', disabled=True, layout=param_button_layout) 
-        desc_row5.style.button_color = 'lightgreen'
-        desc_row6 = Button(description='number of cell tracks to simulate', disabled=True, layout=param_button_layout) 
-        desc_row6.style.button_color = 'tan'
+        desc_button1 = Button(description='mean persistence time', disabled=True, layout=desc_button_layout) 
+        desc_button1.style.button_color = 'lightgreen'
+        desc_button2 = Button(description='migration speed', disabled=True, layout=desc_button_layout) 
+        desc_button2.style.button_color = 'tan'
+        desc_button3 = Button(description='migration bias parameter', disabled=True, layout=desc_button_layout) 
+        desc_button3.style.button_color = 'lightgreen'
+        desc_button4 = Button(description='true if each migration path has same duration (future PhysiCell versions)', disabled=True, layout=desc_button_layout) 
+        desc_button4.style.button_color = 'tan'
+        desc_button5 = Button(description='how fast tracer is released', disabled=True, layout=desc_button_layout) 
+        desc_button5.style.button_color = 'lightgreen'
+        desc_button6 = Button(description='number of cell tracks to simulate', disabled=True, layout=desc_button_layout) 
+        desc_button6.style.button_color = 'tan'
 
-        row1 = [self.persistence_time, Label('min' , layout=Layout(flex='1 1 auto', width='auto')), desc_row1] 
-        row2 = [self.migration_speed, Label('micron/min' , layout=Layout(flex='1 1 auto', width='auto')), desc_row2] 
-        row3 = [self.migration_bias, Label('' , layout=Layout(flex='1 1 auto', width='auto')), desc_row3] 
-        row4 = [self.fixed_persistence, Label('' , layout=Layout(flex='1 1 auto', width='auto')), desc_row4] 
-        row5 = [self.tracer_secretion, Label('1/min' , layout=Layout(flex='1 1 auto', width='auto')), desc_row5] 
-        row6 = [self.number_of_cells, Label('' , layout=Layout(flex='1 1 auto', width='auto')), desc_row6] 
+        row1 = [param_name1, self.persistence_time, units_button1, desc_button1] 
+        row2 = [param_name2, self.migration_speed, units_button2, desc_button2] 
+        row3 = [param_name3, self.migration_bias, units_button3, desc_button3] 
+        row4 = [param_name4, self.fixed_persistence, units_button4, desc_button4] 
+        row5 = [param_name5, self.tracer_secretion, units_button5, desc_button5] 
+        row6 = [param_name6, self.number_of_cells, units_button6, desc_button6] 
 
         box_layout = Layout(display='flex', flex_flow='row', align_items='stretch', width='100%')
         box1 = Box(children=row1, layout=box_layout)
@@ -99,7 +128,7 @@ class UserTab(object):
         self.persistence_time.value = float(uep.find('.//persistence_time').text)
         self.migration_speed.value = float(uep.find('.//migration_speed').text)
         self.migration_bias.value = float(uep.find('.//migration_bias').text)
-        self.fixed_persistence.value = bool(uep.find('.//fixed_persistence').text)
+        self.fixed_persistence.value = ('true' == uep.find('.//fixed_persistence').text.lower() )
         self.tracer_secretion.value = float(uep.find('.//tracer_secretion').text)
         self.number_of_cells.value = int(uep.find('.//number_of_cells').text)
 
