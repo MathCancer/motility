@@ -128,7 +128,7 @@ class UserTab(object):
         self.persistence_time.value = float(uep.find('.//persistence_time').text)
         self.migration_speed.value = float(uep.find('.//migration_speed').text)
         self.migration_bias.value = float(uep.find('.//migration_bias').text)
-        self.fixed_persistence.value = ('true' == uep.find('.//fixed_persistence').text.lower() )
+        self.fixed_persistence.value = ('true' == (uep.find('.//fixed_persistence').text.lower()) )
         self.tracer_secretion.value = float(uep.find('.//tracer_secretion').text)
         self.number_of_cells.value = int(uep.find('.//number_of_cells').text)
 
