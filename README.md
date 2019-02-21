@@ -1,2 +1,2 @@
-# tool4ise
-This tool is for my ISE project.
+# motility
+Simple demonstration of biased random migration.
