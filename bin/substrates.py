@@ -25,6 +25,11 @@ class SubstrateTab(object):
 
         # initial value
         self.field_index = 4
+
+        # define dummy size of mesh (set in the tool's primary module)
+        self.numx = 0
+        self.numy = 0
+
         # self.field_index = self.mcds_field.value + 4
 
         tab_height = '500px'
@@ -177,8 +182,8 @@ class SubstrateTab(object):
         self.tab = VBox([row1, row2, self.mcds_plot, download_row])
 
     #---------------------------------------------------
-    def update_dropdown_fields(self, data_dir):
-        # print('update_dropdown_fields called --------')
+    def update_mesh_sizes(self, data_dir):
+        # print('update_mesh_sizes called --------')
         self.output_dir = data_dir
         tree = None
         try:
@@ -189,6 +194,20 @@ class SubstrateTab(object):
             ycoord_vals = xml_root.find(".//y_coordinates").text.split()
             self.numx = len(xcoord_vals)
             self.numy = len(ycoord_vals)
+            return True
+        except:
+            print("Cannot open ",fname," to read info, e.g., names of substrate fields.")
+            return False
+
+    #---------------------------------------------------
+    def update_dropdown_fields(self, data_dir):
+        # print('update_dropdown_fields called --------')
+        self.output_dir = data_dir
+        tree = None
+        try:
+            fname = os.path.join(self.output_dir, "initial.xml")
+            tree = ET.parse(fname)
+            xml_root = tree.getroot()
         except:
             print("Cannot open ",fname," to read info, e.g., names of substrate fields.")
             return
